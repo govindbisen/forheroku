@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express()
-const port = 4000
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 4000;
+}
 
 app.get('/', (req, res) => {
   res.send('Server is up and running!!');
@@ -9,3 +13,4 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+
